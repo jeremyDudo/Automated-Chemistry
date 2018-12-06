@@ -23,7 +23,7 @@ class syringe():
             file: file to store the gcode
         """
         
-        strgtimestmp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+        # strgtimestmp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
 
         self.resting = 100      # mm
         self.in_tube = 50       # mm
@@ -40,7 +40,7 @@ class syringe():
         file.close() 
 
 
-    def write_move(self, posI, posF, pump=0):
+    def write_move(self, posI, posF):
         """
         Writes the gcode to a script
 
@@ -50,14 +50,12 @@ class syringe():
         print('Moving...')
 
         x_cor, y_cor = (posF[i] - posI[i] for i in range(2))
-        
-        extrude = pump * self.dist_to_vol
 
         # reset height before moving
         clear_height = "G0 Z"       # need to define where 'home' is on the Z axis
         
         # move to next location
-        g_string = "G1 X{0} Y{1} E{2} F2000".format(x_cor, y_cor, extrude) # speed is set as const.
+        g_string = "G1 X{0} Y{1} E{2} F2000".format(x_cor, y_cor) # speed is set as const.
 
         # move into vial
         into_vial = "G1 Z{} F2000".format(self.in_tube)
@@ -70,7 +68,26 @@ class syringe():
         file.write(into_vial+ "\n")
 
         file.close()
-        
+
+    def write_pump(self, pump):
+        """
+        pump: mL pushed[pos]/pulled[neg]
+        """
+        extrude = pump * self.dist_to_vol
+
+
+    def read_script(self, locations):
+        """
+        uhhh
+        """
+        pass
+
+    def wash(self):
+        self.write_move(self.pos, self.pos_WashVial)
+
+    def draw(self):
+        pass
+
     def read_sheet(self, locations):
         """
         Assuming sheets to be locations of labeled vials
@@ -78,8 +95,7 @@ class syringe():
         'wash'
         'output'
         """
+        pass
 
-
-    def read_script(self, locations):
 test = syringe()
 test.write_move([0,10,20], [2, 5, 20])
