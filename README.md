@@ -12,7 +12,7 @@ Automate high thouroughput micro/nano-scale chemistry with a repurposed 3D print
 
 
 ## Contributing
-Please take a look at the [contributing]() guidelines if you're interested in helping!
+Please take a look at the [contributing](https://github.com/jeremyDudo/Automated-Chemistry/blob/master/CONTRIBUTING.md) guidelines if you're interested in helping!
 <br>
 <br>
 #### Pending Features
