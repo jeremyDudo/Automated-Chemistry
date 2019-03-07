@@ -1,4 +1,4 @@
-<h1><b>Automated Chemistry</b></h1>
+<h1><b>gcodeEditor</b></h1>
 
 
 
@@ -7,9 +7,9 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
-## Aim
+## Aims
 Automate high thouroughput micro/nano-scale chemistry with a repurposed 3D printer.
-
+Manipulate Gcode to operate with different API
 
 ## Contributing
 Please take a look at the [contributing](https://github.com/jeremyDudo/Automated-Chemistry/blob/master/CONTRIBUTING.md) guidelines if you're interested in helping!
